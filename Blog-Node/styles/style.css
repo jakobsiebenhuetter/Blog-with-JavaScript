@@ -1,0 +1,203 @@
+html,
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+ 
+  }
+
+header {
+  padding: 2% 1%;
+  background-color: rgb(247, 212, 18);
+  color: black;
+  display: flex;
+  word-wrap: break-word;
+  gap: 19%;
+  align-items: center;
+}
+
+nav ul {
+  left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: rgba(0, 0, 0, 0.444);
+}
+
+h1 {
+  margin: 0;
+  word-wrap: break-word; /* Umbricht das Wort, wenn es zu lang ist */
+  white-space: normal; /* Erlaubt, dass der Text umbricht */
+  max-width: 100%;
+}
+/* main height ist wichtig nochmal anschauen in verbindung mit main padding-bottom: 2%; aus style.css */
+main {
+  text-align: center;
+  padding: 1%;
+  background-color: antiquewhite;
+  padding-bottom: 2.7%;
+}
+
+#section-image {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 500px;
+}
+
+#blog-container {
+  background-color: yellowgreen;
+  width: 50%;
+  position: relative;
+  margin: 0 35%;
+  padding: 1rem;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  word-wrap: break-word;
+}
+
+footer {
+  background-color: rgb(222, 217, 117); 
+  padding-top: 0%;
+}
+
+#footer-div {
+  display: flex;
+  gap: 2%;
+  padding: 1%;
+  background-color: rgb(247, 212, 18);
+}
+
+#comment-container {
+  background-color: #7a7272;
+  width: 450px;
+  position: relative;
+  margin: 0 auto;
+  padding: 1rem;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+#comment-container:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  border-style: solid;
+  border-width: 0 18px 14px 0;
+  border-color: transparent #7a7272 transparent transparent;
+  top: 20%;
+  left: -18px;
+  margin-top: -7px;
+}
+
+#dummy-blog {
+  padding: 2%;
+}
+
+#button-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 80px;
+  gap: 5px;
+}
+
+button {
+  width: 90px;
+  height: 40px;
+  background-color: rgb(41, 240, 190);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(68, 247, 202);
+  border: 2px solid rgb(68, 247, 202);
+}
+
+.delete-button {
+  background-color: rgb(239, 22, 22);
+  border: 2px solid rgb(239, 22, 22);
+}
+
+.delete-button:hover {
+  background-color: rgb(242, 55, 55);
+  border: 2px solid rgb(242, 55, 55);
+}
+
+#div-form {
+  margin-left: 7.5em;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+textarea {
+  resize: none;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#popup-editcomment {
+  text-align: center;
+  margin: 10% auto;
+  padding: 3%;
+  background-color: antiquewhite;
+  height: 40%;
+  width: 50%;
+  border-radius: 10px;
+}
+
+#popup-editcomment button {
+  display: block;
+  margin: 1% auto;
+}
+
+textarea {
+  background-color: #a69e9e;
+  color: black;
+  border-radius: 10px;
+  padding: 1rem;
+  outline: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  width: 450px;
+  height: 150px;  
+}
+
+textarea:hover {
+  background-color: #d4c8c8;
+  cursor: pointer;
+}
+
+textarea:focus {
+  cursor: text;
+}
+
+textarea::placeholder {
+  color: rgba(0, 0, 0, 0.774);
+} 

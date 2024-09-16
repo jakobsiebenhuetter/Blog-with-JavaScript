@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mein Blog</title>
+    <link rel="stylesheet" href="/style.css" />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+/* main height ist wichtig nochmal anschauen in verbindung mit main padding-bottom: 2%; aus style.css */
+      main {
+        height: 72.6%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <%- include('includes/header') %>
+    <main>
+      <p>Dieser Blog dient als Projekt für Übungszwecke in der Webprogrammierung mit HTML, CSS und JavaScript. Unter anderem mit Vanilla JavaScript im Frontend :-)</p>
+    </main>
+
+    <%- include('includes/footer-div') %>
+  </body>
+</html>

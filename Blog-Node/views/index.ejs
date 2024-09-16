@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="at">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog-JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <%- include('includes/header') %>
+
+    <main>
+      <section id="section-image">
+        <img
+          style="width: 500px; border-radius: 50px"
+          src="/image.png"
+          alt="JS code snippets"
+        />
+      </section>
+
+      <section>
+        <% for ( const blog of blogs) { %>
+        <section>
+          <div id="blog-container">
+            <div id="dummy-blog">
+              <label style="text-align: left; display: block"
+                ><%= blog.date %></label
+              >
+              <br />
+              <label>Titel: <%= blog.title %></label>
+              <p><%= blog.blog %></p>
+
+              <div id="button-container">
+                <button><a href="/blog/<%= blog.id %>">Lesen</a></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <br />
+        <br />
+
+        <% } %>
+      </section>
+
+      <section></section>
+      <h3>Kommentare</h3>
+      <% for (const comment of comments) { %>
+      <section>
+        <div id="comment-container">
+          <div id="comment-blog">
+            <p><%= comment.comment %></p>
+          </div>
+
+          <div id="button-container">
+            <button
+              id="edit-comment-btn"
+              data-comment="<%= comment.comment %>"
+              data-commentid="<%= comment.id %>"
+            >
+              Ändern
+            </button>
+
+            <form action="/delete/<%= comment.id %>" method="post">
+              <button class="delete-button">Löschen</button>
+            </form>
+          </div>
+        </div>
+
+        <br />
+        <br />
+
+        <br />
+
+        <% } %>
+        <div id="popup">
+          <div id="popup-editcomment">
+            <p>Kommentar bearbeiten</p>
+            <form action="/edited-comment" method="post">
+              <input id="hiddencommentid" type="hidden" name="commentid" />
+              <textarea
+                id="edited-comment"
+                type="text"
+                name="editedComment"
+              ></textarea>
+              <button>Bearbeiten</button>
+            </form>
+            <button id="popup-close">Schließen</button>
+          </div>
+        </div>
+
+        <form action="/addcomment" method="POST">
+          <div id="div-form">
+            <textarea
+              name="comment"
+              id="blog"
+              rows="3"
+              cols="100"
+              required
+              placeholder="Trage ein Kommentar ein..."
+            ></textarea>
+            <button>Kommentar fixieren</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    
+    <%- include('includes/footer-div') %>
+
+  </body>
+  <!-- Frontend JS Script für das Kommentar Popup-Fenster -->
+  <script>
+    const editButtonsofComments =
+      document.querySelectorAll("#edit-comment-btn");
+    const popUp = document.getElementById("popup");
+    const editedComment = document.getElementById("edited-comment");
+    const commentId = document.getElementById("hiddencommentid");
+    const popUpButtonClose = document.getElementById("popup-close");
+    const popUpWindowGenerallClose = document.getElementById("popup");
+
+    for (const editButtonOfComment of editButtonsofComments) {
+      editButtonOfComment.addEventListener("click", () => {
+        const commentIdFromDataset = editButtonOfComment.dataset.commentid;
+        const getspecificComment = editButtonOfComment.dataset.comment;
+        commentId.value = commentIdFromDataset;
+        editedComment.value = getspecificComment;
+        popUp.style.display = "block";
+      });
+    }
+
+    popUpButtonClose.addEventListener("click", function () {
+      popUp.style.display = "none";
+    });
+  </script>
+</html>

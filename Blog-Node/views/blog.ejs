@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    main {
+      height: 77%;
+    }
+  </style>
+
+  <body>
+<%- include('includes/header') %>
+    
+    <main>
+      <p>Titel: <%= myBlog.title %></p>
+      <section>
+        <p><%= myBlog.blog %></p>
+      </section>
+
+      <section>
+        <div style="text-align: center">
+          <form action="/edit/<%= myBlog.id %>" method="post">
+            <textarea name="updatedText" id=""><%= myBlog.blog %></textarea>
+            <br />
+            <br />
+            <label
+              >Um den Blog zu bearbeiten, geben Sie bitte das Passwort
+              ein.</label
+            >
+
+            <input type="password" name="password" style="margin: 7px" />
+            <br />
+            <br />
+            <button name="button" value="edit">Blog bearbeiten</button>
+            <br />
+            <br />
+
+            <button class="delete-button" name="button" value="delete">
+              Löschen
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <%- include('includes/footer-div') %>
+  </body>
+</html>

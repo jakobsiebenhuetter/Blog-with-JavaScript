@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+/* main height ist wichtig nochmal anschauen in verbindung mit main padding-bottom: 2%; aus style.css */
+      main {
+        height: 72.6%;
+      }
+
+      form {
+        text-align: center;
+      }
+      input {
+        display: block;
+        width: 500px;
+        height: 30px;
+        margin: 2% auto;
+      }
+
+      button {
+        display: block;
+        margin: 2% auto;
+      }
+
+      #title-field {
+        background-color: #a69e9e;
+        color: black;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+        outline: none;
+        border: solid 1px #a69e9e;
+      }
+      #title-field::placeholder {
+        color: rgba(0, 0, 0, 0.774);
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('includes/header') %>
+    <!-- <a href="/index">Home</a>
+      <h1>Neuer Blog</h1> -->
+
+    <main>
+      <form action="/blog" method="post">
+        <input name="date" type="hidden" id="date" />
+        <input
+          id="title-field"
+          name="title"
+          type="text"
+          id="title"
+          required
+          placeholder="Titel"
+        />
+        <textarea
+          name="blog"
+          id="blog"
+          required
+          placeholder="Trage was ein..."
+        ></textarea>
+        <button>Blog einfügen</button>
+      </form>
+    </main>
+
+    <footer><%- include('includes/footer-div') %></footer>
+  </body>
+  <script>
+    const date = new Date();
+    const months = [
+      "Jänner",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember",
+    ];
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const actualDate = `${day} ${month} ${year}`;
+
+    const dateField = document.querySelector("#date");
+    dateField.value = actualDate;
+  </script>
+</html>
